@@ -1,0 +1,39 @@
+# Install everything we can from yum.
+yum install autoconf automake gcc gcc-c++ git libtool make nasm pkgconfig zlib-devel
+yum install yasm yasm-devel lame lame-devel
+
+# These dirs work well.
+mkdir /usr/local/lib64/ffmpeg
+cd /usr/local/lib64/ffmpeg
+
+# Get the fdk-aac audio encoder.
+git clone --depth 1 git://github.com/mstorsjo/fdk-aac.git
+cd fdk-aac
+./configure
+make
+make install
+
+# Get x264, and compile for Hi10P. For 8-bit, just don't do --bit-depth=10.
+git clone git://git.videolan.org/x264.git
+cd x264
+./configure --enable-static --enable-shared --bit-depth=10
+make
+make install
+
+# Get ffmpeg. Use release tarball since there are actually major releases.
+wget <http://ffmpeg.org...>
+cd ffmpeg-*
+PKG_CONFIG_PATH="/usr/local/bin/lib/pkgconfig"
+export PKG_CONFIG_PATH
+./configure --prefix="/usr/local/bin" --extra-cflags="-I/usr/local/bin/include" --extra-ldflags="-L/usr/local/lib" --bindir="/usr/local/bin" --extra-libs="-ldl" --enable-gpl --enable-nonfree --enable-libfdk_aac --enable-libmp3lame --enable-libx264 --enable-libfreetype
+make
+make install
+
+# If there is trouble loading the fdk-aac and x264 shared libs...
+emacs /etc/ld.so.conf
+### Add where the .so files are (/usr/local/lib)
+ldconfig
+
+// Updating.
+make distclean
+git pull
