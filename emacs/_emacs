@@ -1,0 +1,113 @@
+;;; Modified 10.4.2007
+;;; Danny Shih
+
+;; initial directory
+(cd "~/")
+
+;; put ~ files elsewhere
+(setq backup-directory-alist `(("." . "/home/emacs-backup/")))
+
+;; basic editor stuff
+(custom-set-variables
+ '(tool-bar-mode nil) ;no toolbar (0 or nil)
+ '(menu-bar-mode nil)) ;no menu (0 or nil)
+(setq column-number-mode 1) ;show column number
+(set-scroll-bar-mode 'right) ;scrollbar on the right side
+
+;; put .h files in c++ mode
+(setq auto-mode-alist (append '(("\\.h$" . c++-mode)) auto-mode-alist))
+
+;; custom bindings
+(global-set-key (read-kbd-macro "M-\\") 'undo)
+(global-set-key (read-kbd-macro "C-j") 'other-window)
+(global-set-key (read-kbd-macro "C-i") 'delete-other-windows)
+(global-set-key (read-kbd-macro "M-a") 'beginning-of-buffer)
+(global-set-key (read-kbd-macro "M-e") 'end-of-buffer)
+(global-set-key (read-kbd-macro "C--") 'shrink-window-horizontally)
+(global-set-key (read-kbd-macro "C-=") 'enlarge-window-horizontally)
+(global-set-key (read-kbd-macro "M-SPC") 'whitespace-mode)
+(define-key ctl-x-map "g" 'goto-line)
+(define-key ctl-x-map "r" 'query-replace)
+(define-key ctl-x-map "a" 'mark-whole-buffer)
+(defun winfind() (interactive)
+  (split-window-horizontally)
+  (other-window 1)
+  (find-file "./")
+  ) (global-set-key (read-kbd-macro "C-t") 'winfind)
+;(define-key global-map "\C-h" 'backward-delete-char)
+
+;; colors
+(set-background-color "black")
+(set-foreground-color "white")
+(set-cursor-color "red")
+
+;; default font
+; (insert (prin1-to-string (x-list-fonts "*"))) --> Ctrl-J
+; ...to view available fonts
+
+;(set-default-font "-adobe-courier-medium-r-normal--14-100-100-100-m-90-iso8859-1")
+;(set-default-font "-*-Courier New-normal-r-*-*-14-120-*-*-c-*-*-ansi-") ;windows
+
+;; font-lock (syntax colors and font faces)
+(setq c-mode-hook (lambda () (font-lock-mode 1)))
+(setq c++-mode-hook (lambda () (font-lock-mode 1)))
+(setq java-mode-hook (lambda () (font-lock-mode 1)))
+(setq html-mode-hook (lambda () (font-lock-mode 1)))
+;; override colors
+(copy-face 'bold 'font-lock-comment-face) ;comments bold and blue
+(set-face-foreground 'font-lock-comment-face "cornflower blue")
+(set-face-foreground 'font-lock-string-face "SeaGreen3") ;strings green
+(set-face-foreground 'font-lock-keyword-face "violet") ;keywords violet
+(set-face-foreground 'font-lock-type-face "cadet blue") ;types blue
+(set-face-foreground 'font-lock-variable-name-face "khaki3") ;variables khaki
+(set-face-foreground 'font-lock-function-name-face "yellow green") ;funtions yellow/green
+(set-face-foreground 'font-lock-preprocessor-face "orange") ;preprocessor orange
+
+;; indentation
+(setq c-default-style
+      '( (c-mode . "stroustrup")
+	 (c++-mode . "stroustrup")
+	 (java-mode . "java")
+	 ))
+;; - random tab stuff
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+
+;; "newline-and-indent" on Enter key
+(global-set-key "\C-m" 'newline-and-indent)
+
+
+;; dos2unix/unix2dos from Benjamin Rutt's .emacs
+(defun dos2unix () (interactive)
+  (goto-char (point-min))
+  (while (search-forward "\r" nil t) (replace-match "")))
+(defun unix2dos () (interactive)
+  (goto-char (point-min))
+  (while (search-forward "\n" nil t) (replace-match "\r\n")))
+
+
+;; Javascript mode
+(add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
+(autoload 'javascript-mode "javascript" nil t)
+
+;; C# mode (csharp-mode.el by Dylan Moonfire)
+;  * Requires cc-mode 5.30.x :: M+x c-version (in a C file)
+;  * M-0 M-x byte-recompile-directory RET /path/to/els RET
+;(add-to-list 'load-path "/home/danny/src/_bytes/")
+;(autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
+;(setq auto-mode-alist
+;(append '(("\\.cs$" . csharp-mode)) auto-mode-alist))
+;(defun my-csharp-mode-hook ()
+;  (progn
+;   (turn-on-font-lock)
+;   (auto-fill-mode)
+;   (setq tab-width 4)
+;   (define-key csharp-mode-map "\t" 'c-tab-indent-or-complete))
+;   (setq c-basic-offset 4)
+;   (c-set-offset 'substatement-open 0)
+;   (c-set-offset 'statement-cont 4)
+;   (c-set-offset 'topmost-intro-cont 0)
+;   (c-set-offset 'block-open 0)
+;   (c-set-offset 'arglist-cont-nonempty 4)
+;   )
+;(add-hook 'csharp-mode-hook 'my-csharp-mode-hook)
