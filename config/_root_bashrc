@@ -1,0 +1,33 @@
+# .bashrc for root on imladris
+
+# Colors.
+txtblk='\e[0;30m' # Black - Regular
+txtred='\e[0;31m' # Red
+txtgrn='\e[0;32m' # Green
+txtylw='\e[0;33m' # Yellow
+txtblu='\e[0;34m' # Blue
+txtpur='\e[0;35m' # Purple
+txtcyn='\e[0;36m' # Cyan
+txtwht='\e[0;37m' # White
+txtrst='\e[0m'    # Text Reset
+
+if [ $TERM = dumb ]; # If emacs shell, keep it simple.
+then
+    export PS1='emacs-shell$ '
+else
+    export PS1="\[$txtylw\][\t \u@\h:\W]\$ \[$txtrst\]"
+
+    alias rsync='rsync -Phvt'
+    alias emacs='emacs -nw'
+fi
+
+export EDITOR='/usr/bin/emacs'
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# Source global definitions.
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
