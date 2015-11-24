@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo 'Sync system time with nist.gov...'
-/usr/sbin/ntpdate time.nist.gov >> ~/timesync.log
+/usr/sbin/ntpdate time.nist.gov
 
 echo 'Sync hardware clock with system time...'
 /sbin/hwclock --systohc
