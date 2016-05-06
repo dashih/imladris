@@ -18,7 +18,6 @@
 (setq auto-mode-alist (append '(("\\.h$" . c++-mode)) auto-mode-alist))
 
 ;; custom bindings
-(global-set-key (read-kbd-macro "M-\\") 'undo)
 (global-set-key (read-kbd-macro "C-j") 'other-window)
 (global-set-key (read-kbd-macro "C-i") 'delete-other-windows)
 (global-set-key (read-kbd-macro "M-a") 'beginning-of-buffer)
