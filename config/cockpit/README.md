@@ -1,5 +1,6 @@
 ## Cockpit
 `yum install cockpit`
+
 cockpit.conf -> /etc/cockpit/
 cockpit.service -> /usr/lib/systemd/system
 
