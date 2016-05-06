@@ -1,0 +1,6 @@
+...
+PasswordAuthentication no
+...
+
+Match User cockpit
+PasswordAuthentication yes
