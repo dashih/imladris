@@ -14,7 +14,7 @@ Encodes all video files in a directory tree of a given extension to MP4/x264/aac
 #### Set up build dirs in root HOME.
 ```
 cd ~
-mkdir -p ffmpeg-build
+mkdir ffmpeg-build
 ```
 
 Sync all components in ffmpeg-build. They will publish their artifacts in /usr/local[bin/lib/include/...]
