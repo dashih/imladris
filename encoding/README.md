@@ -46,7 +46,8 @@ make
 make install
 ```
 
-#### ffmpeg. Instead of cloning the repo, sometimes it makes sense to grab a tarball of an official release.
+#### ffmpeg
+Instead of cloning the repo, sometimes it makes sense to grab a tarball of an official release.
 ```
 git clone http://source.ffmpeg.org/git/ffmpeg.git
 PKG_CONFIG_PATH="/usr/local/lib/pkgconfig" ./configure --prefix="/usr/local" --extra-cflags="-I/usr/local/include" --extra-ldflags="-L/usr/local/lib" --bindir="/usr/local/bin" --pkg-config-flags="--static" --enable-gpl --enable-nonfree --enable-libfdk-aac --enable-libfreetype --enable-libx264
