@@ -11,20 +11,19 @@ Encodes all video files in a directory tree of a given extension to MP4/x264/aac
 #### Dependencies
 `yum install autoconf automake cmake freetype-devel gcc gcc-c++ git libtool make mercurial nasm pkgconfig zlib-devel`
 
-#### Set up dir structure in root HOME. Add output bin dir to PATH.
+#### Set up build dirs in root HOME.
 ```
 cd ~
-mkdir -p ffmpeg/build
-export PATH=$PATH:~/ffmpeg/build/bin
+mkdir -p ffmpeg-build
 ```
 
-Put all components in the ffmpeg/ directory. All of them will publish their artifacts in ffmpeg/build.
+Sync all components in ffmpeg-build. They will publish their artifacts in /usr/local[bin/lib/include/...]
 
 #### Yasm
 ```
 git clone --depth 1 git://github.com/yasm/yasm.git
 autoreconf -fiv
-./configure --prefix="$HOME/ffmpeg/build" --bindir="$HOME/ffmpeg/build/bin"
+./configure --prefix="/usr/local" --bindir="/usr/local/bin"
 make
 make install
 ```
@@ -33,7 +32,7 @@ make install
 For 10-bit, configure with --bit-depth=10
 ```
 git clone --depth 1 git://git.videolan.org/x264
-PKG_CONFIG_PATH="$HOME/ffmpeg/build/lib/pkgconfig" ./configure --prefix="$HOME/ffmpeg/build" --bindir="$HOME/ffmpeg/build/bin" --enable-static
+PKG_CONFIG_PATH="/usr/local/lib/pkgconfig" ./configure --prefix="/usr/local" --bindir="/usr/local/bin" --enable-static
 make
 make install
 ```
@@ -42,7 +41,7 @@ make install
 ```
 git clone --depth 1 git://git.code.sf.net/p/opencore-amr/fdk-aac
 autoreconf -fiv
-./configure --prefix="$HOME/ffmpeg/build" --disable-shared
+./configure --prefix="/usr/local" --disable-shared
 make
 make install
 ```
@@ -50,8 +49,10 @@ make install
 #### ffmpeg. Instead of cloning the repo, sometimes it makes sense to grab a tarball of an official release.
 ```
 git clone http://source.ffmpeg.org/git/ffmpeg.git
-PKG_CONFIG_PATH="$HOME/ffmpeg/build/lib/pkgconfig" ./configure --prefix="$HOME/ffmpeg/build" --extra-cflags="-I$HOME/ffmpeg/build/include" --extra-ldflags="-L$HOME/ffmpeg/build/lib" --bindir="$HOME/ffmpeg/build/bin" --pkg-config-flags="--static" --enable-gpl --enable-nonfree --enable-libfdk-aac --enable-libfreetype --enable-libx264
+PKG_CONFIG_PATH="/usr/local/lib/pkgconfig" ./configure --prefix="/usr/local" --extra-cflags="-I/usr/local/include" --extra-ldflags="-L/usr/local/lib" --bindir="/usr/local/bin" --pkg-config-flags="--static" --enable-gpl --enable-nonfree --enable-libfdk-aac --enable-libfreetype --enable-libx264
+make
+make install
 ```
 
-#### Manually publish the executables.
-Copy to /usr/local/bin. If 8-bit and 10-bit versions, rename 10-bit to ffmpeg10.
+#### Optional
+For 10-bit, rename to ffmpeg10, then build 8-bit.
