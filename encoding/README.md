@@ -55,5 +55,5 @@ make
 make install
 ```
 
-#### Optional
-For 10-bit, rename to ffmpeg10, then build 8-bit.
+#### Side-by-side 8-bit x264 and 10-bit
+Since we are statically linking everything, we'll need to rebuild x264 (with --bit-depth=10), then rebuild ffmpeg. Rename the executable to ffmpeg10.
