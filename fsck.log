@@ -1,0 +1,35 @@
+************************************************************************************************************************
+Sat May 21 00:48:18 PDT 2016
+fsck.ext4 -f -y -c -v /dev/md127 |& tee fsck.log
+************************************************************************************************************************
+e2fsck 1.42.9 (28-Dec-2013)
+Checking for bad blocks (read-only test):
+100.00% done, 4:15:11 elapsed. (0/0/0 errors)
+/dev/md127: Updating bad block inode.
+Pass 1: Checking inodes, blocks, and sizes
+Pass 2: Checking directory structure
+Pass 3: Checking directory connectivity
+Pass 4: Checking reference counts
+Pass 5: Checking group summary information
+
+/dev/md127: ***** FILE SYSTEM WAS MODIFIED *****
+
+       30835 inodes used (0.01%, out of 244039680)
+        1153 non-contiguous files (3.7%)
+          12 non-contiguous directories (0.0%)
+             # of inodes with ind/dind/tind blocks: 0/0/0
+             Extent depth histogram: 28603/2221
+   477264868 blocks used (48.89%, out of 976158720)
+           0 bad blocks
+          94 large files
+
+       28489 regular files
+        2334 directories
+           0 character device files
+           0 block device files
+           0 fifos
+           0 links
+           3 symbolic links (3 fast symbolic links)
+           0 sockets
+------------
+       30826 files
