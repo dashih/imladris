@@ -29,7 +29,7 @@ do
     then
         echo $dir":" $(numfmt --to=si $dirSize)
     else
-        rsync -a $dir $1
+        rsync -av --progress $dir $1
         echo $dir":" $(numfmt --to=si $dirSize) >> "$1/backup.log"
     fi
     
