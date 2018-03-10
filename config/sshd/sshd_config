@@ -2,6 +2,3 @@
 PasswordAuthentication no
 ChallengeResponseAuthentication no
 ...
-
-Match User cockpit
-PasswordAuthentication yes
