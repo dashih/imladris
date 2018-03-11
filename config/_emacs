@@ -1,11 +1,11 @@
-;;; Modified 10.4.2007
+;;; Modified 03.11.2018
 ;;; Danny Shih
 
 ;; initial directory
 (cd "~/")
 
 ;; put ~ files elsewhere
-(setq backup-directory-alist `(("." . "/home/emacs-backup/")))
+(setq backup-directory-alist `(("." . "~/emacs-backup/")))
 
 ;; basic editor stuff
 (custom-set-variables
@@ -18,13 +18,15 @@
 (setq auto-mode-alist (append '(("\\.h$" . c++-mode)) auto-mode-alist))
 
 ;; custom bindings
+(global-set-key (read-kbd-macro "M-\\") 'undo)
 (global-set-key (read-kbd-macro "C-j") 'other-window)
 (global-set-key (read-kbd-macro "C-i") 'delete-other-windows)
 (global-set-key (read-kbd-macro "M-a") 'beginning-of-buffer)
 (global-set-key (read-kbd-macro "M-e") 'end-of-buffer)
 (global-set-key (read-kbd-macro "C--") 'shrink-window-horizontally)
 (global-set-key (read-kbd-macro "C-=") 'enlarge-window-horizontally)
-(global-set-key (read-kbd-macro "M-SPC") 'whitespace-mode)
+(global-set-key (read-kbd-macro "M-s") 'whitespace-mode)
+(global-set-key (read-kbd-macro "M-i") 'indent-region)
 (define-key ctl-x-map "g" 'goto-line)
 (define-key ctl-x-map "r" 'query-replace)
 (define-key ctl-x-map "a" 'mark-whole-buffer)
@@ -74,7 +76,6 @@
 
 ;; "newline-and-indent" on Enter key
 (global-set-key "\C-m" 'newline-and-indent)
-
 
 ;; dos2unix/unix2dos from Benjamin Rutt's .emacs
 (defun dos2unix () (interactive)
