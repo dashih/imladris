@@ -11,16 +11,14 @@ txtcyn='\e[0;36m' # Cyan
 txtwht='\e[0;37m' # White
 txtrst='\e[0m'    # Text Reset
 
-if [ $TERM = dumb ]; # If emacs shell, keep it simple.
-then
-    export PS1='emacs-shell$ '
-else
-    export PS1="\[$txtcyn\][\t \u@\h:\W]\$ \[$txtrst\]"
+# dss4f user.
+export PS1="\[$txtcyn\][\t \u@\h:\W]\$ \[$txtrst\]"
 
-    alias rsync='rsync -Phvt'
-    alias emacs='emacs -nw'
-fi
+# root user.
+# export PS1="\[$txtred\][\t \u@\h:\W]\\$ \[$txtrst\]"
 
+alias rsync='rsync -Phvt'
+alias emacs='emacs -nw'
 export EDITOR='/usr/bin/emacs'
 
 # Source global definitions.
