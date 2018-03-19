@@ -1,0 +1,18 @@
+myhostname = dannyshih.net
+inet_interfaces = all
+inet_protocols = all
+mydestination = $myhostname, localhost.$mydomain, localhost
+
+# qmail system
+home_mailbox = Maildir/
+
+# SSL
+smtpd_tls_cert_file=/etc/letsencrypt/live/dannyshih.net/cert.pem
+smtpd_tls_key_file=/etc/letsencrypt/live/dannyshih.net/privkey.pem
+smtpd_use_tls=yes
+
+# Use dovecot SASL for auth
+smtpd_sasl_type = dovecot
+smtpd_sasl_path = private/auth
+smtpd_sasl_auth_enable = yes
+smtpd_sasl_path = inet:localhost:7777
