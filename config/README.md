@@ -9,4 +9,4 @@ Every hour - General server check logs to server-check.log. This sends emails on
 
 3:00 AM every day - Backup /home
 
-8:30 AM every day - Daily status email. This is the same as the hourly check, but it sends an email.
+8:30 AM Sundays and Thursdays - Bi-weekly email. This is the same as the hourly check, but it sends an email.
