@@ -14,6 +14,9 @@
 (setq column-number-mode 1) ;show column number
 (set-scroll-bar-mode 'right) ;scrollbar on the right side
 
+;; disable BEEP. 3. Subtly flash the modeline
+(setq visible-bell 3)
+
 ;; put .h files in c++ mode
 (setq auto-mode-alist (append '(("\\.h$" . c++-mode)) auto-mode-alist))
 
