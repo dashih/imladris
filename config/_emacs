@@ -51,9 +51,6 @@
 ; describe-font
 ;(set-frame-font "Inconsolata-12")
 
-;(set-default-font "-adobe-courier-medium-r-normal--14-100-100-100-m-90-iso8859-1")
-;(set-default-font "-*-Courier New-normal-r-*-*-14-120-*-*-c-*-*-ansi-") ;windows
-
 ;; font-lock (syntax colors and font faces)
 (setq c-mode-hook (lambda () (font-lock-mode 1)))
 (setq c++-mode-hook (lambda () (font-lock-mode 1)))
