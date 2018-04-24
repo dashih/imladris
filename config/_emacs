@@ -49,7 +49,7 @@
 ; (insert (prin1-to-string (x-list-fonts "*"))) --> Ctrl-J
 ; ...to view available fonts
 ; describe-font
-;(set-frame-font "Inconsolata-12")
+;(set-frame-font "Inconsolata-11")
 
 ;; font-lock (syntax colors and font faces)
 (setq c-mode-hook (lambda () (font-lock-mode 1)))
