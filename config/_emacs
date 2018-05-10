@@ -2,7 +2,8 @@
 ;;; Danny Shih
 
 ;; initial directory
-(cd "~/")
+(setq inhibit-startup-screen t)
+(setq default-directory "~/")
 
 ;; put ~ files elsewhere
 (setq backup-directory-alist `(("." . "~/emacs-backup/")))
@@ -30,6 +31,7 @@
 (global-set-key (read-kbd-macro "C-=") 'enlarge-window-horizontally)
 (global-set-key (read-kbd-macro "M-s") 'whitespace-mode)
 (global-set-key (read-kbd-macro "M-i") 'indent-region)
+(global-set-key (read-kbd-macro "M-r") 'revert-buffer)
 (define-key ctl-x-map "g" 'goto-line)
 (define-key ctl-x-map "r" 'query-replace)
 (define-key ctl-x-map "a" 'mark-whole-buffer)
