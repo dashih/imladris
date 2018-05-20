@@ -91,27 +91,4 @@
 
 
 ;; Javascript mode
-(add-to-list 'auto-mode-alist '("\\.js\\'" . javascript-mode))
-(autoload 'javascript-mode "javascript" nil t)
-
-;; C# mode (csharp-mode.el by Dylan Moonfire)
-;  * Requires cc-mode 5.30.x :: M+x c-version (in a C file)
-;  * M-0 M-x byte-recompile-directory RET /path/to/els RET
-;(add-to-list 'load-path "/home/danny/src/_bytes/")
-;(autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
-;(setq auto-mode-alist
-;(append '(("\\.cs$" . csharp-mode)) auto-mode-alist))
-;(defun my-csharp-mode-hook ()
-;  (progn
-;   (turn-on-font-lock)
-;   (auto-fill-mode)
-;   (setq tab-width 4)
-;   (define-key csharp-mode-map "\t" 'c-tab-indent-or-complete))
-;   (setq c-basic-offset 4)
-;   (c-set-offset 'substatement-open 0)
-;   (c-set-offset 'statement-cont 4)
-;   (c-set-offset 'topmost-intro-cont 0)
-;   (c-set-offset 'block-open 0)
-;   (c-set-offset 'arglist-cont-nonempty 4)
-;   )
-;(add-hook 'csharp-mode-hook 'my-csharp-mode-hook)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
