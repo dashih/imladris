@@ -8,28 +8,11 @@ echo '---'
 /bin/systemctl status danny-gas-app
 
 echo -e '\n'
-echo '*************************'
-echo '* Checking backup array *'
-echo '*************************'
-# Retrieve status from remote backup.
-/bin/ssh root@192.168.1.80 "/usr/bin/cat /proc/mdstat" &> /home/log/dannyshih-backup_mdstat
-
-# Send an email right here and now if degraded.
-/bin/awk '/_U|U_/ {
-    print "Backup array is degraded!";
-    system("/bin/cat /home/log/dannyshih-backup_mdstat | /bin/mailx -s \"dannyshih.net - Backup array degraded!\" dss4f@dannyshih.net");
-}' /home/log/dannyshih-backup_mdstat
-
-/bin/cat /home/log/dannyshih-backup_mdstat
-echo '---'
-/bin/ssh root@192.168.1.80 "/sbin/mdadm --detail /dev/md127"
-
-echo -e '\n'
 echo '****************************************'
 echo '* Checking if backup disks are mounted *'
 echo '****************************************'
-if /usr/bin/mount | /usr/bin/grep /mnt/backup > /dev/null; then
-    /usr/bin/mount | /usr/bin/grep /mnt/backup
+if /usr/bin/mount | /usr/bin/grep /mnt/dannyshih_net_backup > /dev/null; then
+    /usr/bin/mount | /usr/bin/grep /mnt/dannyshih_net_backup
 else
     # Send an email right here and now if backup disks are ummounted.
     backupErrMsg='Backup disk(s) are not mounted! Backup operations will abort.'
