@@ -1,0 +1,5 @@
+17 2 * * * sudo ~/bin/timesync.sh
+37 2 * * 4 sudo ~/bin/renew-certs.sh
+23 1 * * * sudo ~/bin/app-check.sh
+0 3 * * * ~/bin/backup.sh
+47 1 * * * ~/bin/backup-KeePass-db.sh
