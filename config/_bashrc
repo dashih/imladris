@@ -1,4 +1,4 @@
-# .bashrc for dss4f on imladris
+# .bashrc for dss4f on dannyshih.net
 
 # Colors.
 txtblk='\e[0;30m' # Black - Regular
@@ -11,8 +11,7 @@ txtcyn='\e[0;36m' # Cyan
 txtwht='\e[0;37m' # White
 txtrst='\e[0m'    # Text Reset
 
-# dss4f user.
-export PS1="\[$txtcyn\][\t \u@\h:\W]\$ \[$txtrst\]"
+export PS1="\[$txtcyn\][\t \u@\H:\W]\$ \[$txtrst\]"
 
 # root user.
 # export PS1="\[$txtred\][\t \u@\h:\W]\\$ \[$txtrst\]"
@@ -20,6 +19,8 @@ export PS1="\[$txtcyn\][\t \u@\h:\W]\$ \[$txtrst\]"
 alias rsync='rsync -Phvt'
 alias emacs='emacs -nw'
 export EDITOR='/usr/bin/emacs'
+
+export PATH=$PATH:/home/dss4f/apps/amazon-corretto-11.0.4.11.1-linux-x64/bin
 
 # Source global definitions.
 if [ -f /etc/bashrc ]; then
