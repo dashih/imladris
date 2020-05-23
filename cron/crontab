@@ -2,4 +2,4 @@
 37 2 * * 4 sudo ~/bin/renew-certs.sh
 23 1 * * * sudo ~/bin/app-check.sh
 0 3 * * * ~/bin/backup.sh
-47 1 * * * ~/bin/backup-KeePass-db.sh
+*/10 * * * * ~/bin/backup-KeePass-db.sh &> /dev/null
