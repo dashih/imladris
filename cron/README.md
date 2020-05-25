@@ -1,5 +1,3 @@
-**Every 10 minutes** - Backup KeePass database from OneDrive
-<br />
 **1:23 AM daily** - Check status of all web apps
 <br />
 **2:17 AM daily** - Sync time
