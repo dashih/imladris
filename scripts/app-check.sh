@@ -1,7 +1,9 @@
 #!/bin/sh
 
-/bin/systemctl status danny-content-server
+systemctl status danny-backup-KeePass
 echo -e '\n--------------------\n'
-/bin/systemctl status danny-gas-app
+systemctl status danny-content-server
+echo -e '\n--------------------\n'
+systemctl status danny-gas-app
 
 exit 0
