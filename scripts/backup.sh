@@ -13,7 +13,7 @@ then
 
     echo -e '\n========\n'
 
-    rsync -avh /home/dss4f/gas/ /mnt/dannyshih_net_backup/gas
+    rsync -avh /opt/gas-data/ /mnt/dannyshih_net_backup/gas-data
     rsync -avh /home/dss4f/gringotts-backup/ /mnt/dannyshih_net_backup/gringotts-backup
 
     echo -e '\n========\n'
