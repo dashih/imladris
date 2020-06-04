@@ -1,7 +1,3 @@
-**1:23 AM daily** - Check status of all web apps
+**2:37 AM daily** - Renew letsencrypt SSL certificates if necessary
 <br />
-**2:17 AM daily** - Sync time
-<br />
-**2:37 AM thursday** - Renew letsencrypt SSL certificates if necessary
-<br />
-**3:00 AM daily** - Backup to dannyshih.net NAS
+**3:00 AM daily** - Backup databases to dannyshih.net NAS
