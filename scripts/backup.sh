@@ -18,7 +18,7 @@ then
     echo -e '\n========\n'
 
     echo "Backing up gringotts..."
-    rsync -avh /home/dss4f/gringotts-backup/ /mnt/dannyshih_net_backup/gringotts-backup
+    rsync -avh /var/opt/gringotts-backups/ /mnt/dannyshih_net_backup/gringotts-backups
 
     echo -e '\n========\n'
     du -hs /mnt/dannyshih_net_backup
