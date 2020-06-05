@@ -13,6 +13,5 @@ smtpd_use_tls=yes
 
 # Use dovecot SASL for auth
 smtpd_sasl_type = dovecot
-smtpd_sasl_path = private/auth
 smtpd_sasl_auth_enable = yes
 smtpd_sasl_path = inet:localhost:7777
