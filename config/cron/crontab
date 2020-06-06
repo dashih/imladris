@@ -1,5 +1,5 @@
-*/5  *  *  *  * sudo -u apache php -f /var/www/html/nextcloud/cron.php
-*/10 *  *  *  * sudo node /var/www/nodejs/quotes/app.js
+*/5  *  *  *  * sudo -u apache php -f /var/www/html/nextcloud/cron.php > /dev/null
+*/10 *  *  *  * sudo node /var/www/nodejs/quotes/app.js > /dev/null
 */30 * * * * node ~/bin/check_nas_raid.js > /dev/null
 37 2 * * * sudo /usr/local/bin/renew-certs.sh
 0 3 * * * ~/bin/backup.sh
