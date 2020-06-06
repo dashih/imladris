@@ -1,0 +1,2 @@
+*/5  *  *  *  * sudo -u apache php -f /var/www/html/nextcloud/cron.php
+*/10 *  *  *  * node /var/www/nodejs/quotes/app.js

@@ -1,2 +1,3 @@
-37 2 * * * sudo ~/bin/renew-certs.sh
+*/30 * * * * node ~/bin/check_nas_raid.js > /dev/null
+37 2 * * * sudo /usr/local/bin/renew-certs.sh
 0 3 * * * ~/bin/backup.sh
