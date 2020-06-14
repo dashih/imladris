@@ -1,4 +1,4 @@
-Run cron jobs as dss4f (sudo for other users) to get emails, since I do not receive emails as root. Swallowing stdout means an email is not sent unless there are errors.
+Run cron jobs as dss4f (sudo for other users) to get emails, since I do not receive emails as root. Swallowing stdout means an email is not sent unless there are errors (stderr is still passed to cron, which will email them).
 
 | Schedule | User | Output | Description |
 | -------- | ---- | -------| ----------- |
@@ -7,3 +7,4 @@ Run cron jobs as dss4f (sudo for other users) to get emails, since I do not rece
 | Every 30 minutes | dss4f| stdout swallowed | Check status of primary raid |
 | 2:37 AM daily | root | all output emailed | Renew letsencrypt certs |
 | 3:00 AM daily | dss4f | all output emailed | Backup databases, gas to primary raid |
+| 3:43 AM Tuesdays | root | all output emailed | Backup primary raid to NAS |
