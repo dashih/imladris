@@ -1,6 +1,6 @@
 */5  *  *  *  * sudo -u apache php -f /var/www/html/nextcloud/cron.php > /dev/null
-*/10 *  *  *  * sudo node /opt/nodejs/quotes/app.js > /dev/null
-*/30 * * * * node /opt/nodejs/check-raid/app.js > /dev/null
+*/10 *  *  *  * sudo node /var/www/nodejs/quotes/set-motd.js > /dev/null
+*/30 * * * * sudo ~/bin/check-raid-array.sh > /dev/null
 37 2 * * * sudo /usr/local/bin/renew-certs.sh
 0 3 * * * ~/bin/backup.sh
 43 3 * * 2 sudo /usr/local/bin/backup-to-nas.sh
