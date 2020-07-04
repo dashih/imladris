@@ -5,6 +5,7 @@
 /usr/bin/chmod -R g+rX /etc/letsencrypt
 
 /bin/systemctl start danny-gas-app
+/bin/systemctl start danny-quotes
 /bin/systemctl start httpd
 /bin/systemctl start postfix
 /bin/systemctl start dovecot
