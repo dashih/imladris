@@ -28,4 +28,4 @@ If you're running a weird desktop (lxqt) or even just some issue with KDE, you m
 
 ### Resolution
 `vncserver -geometry 1920x1080`
-`xrandr -s 1920x1080
+`xrandr -s 1920x1080`
