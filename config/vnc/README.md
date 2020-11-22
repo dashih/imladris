@@ -27,5 +27,7 @@ When VNC fails to start, it will often leave behind processes, PID files, socket
 If you're running a weird desktop (lxqt) or even just some issue with KDE, you may need to tweak `~/.vnc/xstartup`. When there are issues with the startup commands, they can manifest as strange errors when trying to boot vncserver. Use Google to figure out which commands work.
 
 ### Resolution
-`vncserver -geometry 1920x1080`
-`xrandr -s 1920x1080`
+```
+vncserver -geometry 1920x1080
+xrandr -s 1920x1080
+```
