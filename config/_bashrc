@@ -1,4 +1,18 @@
-# .bashrc for dss4f on dannyshih.net
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# User specific environment
+PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
 
 # Colors.
 txtblk='\e[0;30m' # Black - Regular
@@ -12,17 +26,4 @@ txtwht='\e[0;37m' # White
 txtrst='\e[0m'    # Text Reset
 
 export PS1="\[$txtcyn\][\t \u@\H:\W]\$ \[$txtrst\]"
-
-# root user.
-# export PS1="\[$txtred\][\t \u@\h:\W]\\$ \[$txtrst\]"
-
-alias rsync='rsync -Phvt'
-alias emacs='emacs -nw'
 export EDITOR='/usr/bin/emacs'
-
-export PATH=$PATH:/home/dss4f/apps/amazon-corretto-11.0.4.11.1-linux-x64/bin
-
-# Source global definitions.
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
