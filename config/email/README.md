@@ -7,3 +7,5 @@ Port 465 - Postfix's SMTPS port. No clients really use this, as everyone just us
 Port 143 - IMAP unencrypted + STARTTLS.
 
 Port 993 - IMAPS. Same as Port 465; no clients seem to ever start off with IMAPS, preferring to just use STARTTLS.
+
+Note: Use `.forward` files to forward root and user mail to a less-privileged alerts user.
